@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Private Events
+This project is from the Odin Project ruby on rails path. Description of the projects is [here](https://www.theodinproject.com/lessons/ruby-on-rails-private-events). In this project the goal is to make an app similar to eventbrite. Users will be able to create and attend events. This project aims to work on many to many relationships. So working on active record associations and spending a lot of time on [this](https://guides.rubyonrails.org/association_basics.html) site. 
 
-Things you may want to cover:
+* Rails version 7.0.8
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Database creation: Postgresql
