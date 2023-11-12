@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Your Events</h1>
+
+<div id="events">
+  <% @events.each do |event| %>
+      <% if event.creator_id == current_user.id %>
+        <%= render event %>
+        <p>
+        <%= link_to "Show this event", event %>
+        </p>
+      <% end %>
+  <% end %>
+</div>
+
+<%= link_to "Home", root_path %>
+
+
+
+<p>Find me in app/views/users/show.html.erb</p>
