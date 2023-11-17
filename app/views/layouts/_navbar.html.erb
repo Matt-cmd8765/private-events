@@ -1,0 +1,9 @@
+
+<% if user_signed_in? %>
+    <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Your Events", user_path(current_user) %></li>
+        <li><%= link_to "New event", new_event_path %></li>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+    </ul>
+<%end%>

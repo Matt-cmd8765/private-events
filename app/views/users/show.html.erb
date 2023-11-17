@@ -10,15 +10,19 @@
 
 <h1>Your Attended Events</h1>
 
+<h3>Events Long Gone</h3>
 <% @user.attended_events.each do |event| %>
+  <% if event.date.past? %>
+    <%= link_to "#{event.title}", event%><br>
+  <% end %>
+<% end %>
 
-<%= link_to "#{event.title}", event%><br>
-
-<%end%>
-
-
-<%= link_to "Home", root_path %>
-
+<h3>Events To Come</h3>
+<% @user.attended_events.each do |event| %>
+  <% if event.date.future? %>
+    <%= link_to "#{event.title}", event%><br>
+  <% end %>
+<% end %>
 
 
 <p>Find me in app/views/users/show.html.erb</p>
