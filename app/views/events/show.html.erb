@@ -2,8 +2,18 @@
 
 <%= render @event %>
 
+<h2>Attendees</h2>
+
+<% if @event.attendees.any? %>
+  <% @event.attendees.each do |attendee| %>
+    <%= attendee.email%><br>
+  <% end %>
+<% else %>
+  No Attendees<br>
+<% end %>
+
 <div>
-  <%= link_to "Edit this event", edit_event_path(@event) %> |
+  <%= link_to "Edit this event", edit_event_path(@event) %> 
   <%= link_to "Back to events", events_path %>
 
   <%= render 'event_details/form' %><br>

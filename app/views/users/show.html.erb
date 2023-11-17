@@ -2,16 +2,20 @@
 
 <h1>Your Events</h1>
 
-<div id="events">
-  <% @events.each do |event| %>
-      <% if event.creator_id == current_user.id %>
-        <%= render event %>
-        <p>
-        <%= link_to "Show this event", event %>
-        </p>
-      <% end %>
-  <% end %>
-</div>
+<% @user.created_events.each do |event| %>
+
+<%= link_to "#{event.title}", event%><br>
+
+<%end%>
+
+<h1>Your Attended Events</h1>
+
+<% @user.attended_events.each do |event| %>
+
+<%= link_to "#{event.title}", event%><br>
+
+<%end%>
+
 
 <%= link_to "Home", root_path %>
 

@@ -3,5 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @events = Event.all
+    @user = current_user
   end
 end
