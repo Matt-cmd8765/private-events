@@ -43,7 +43,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+# gem "sassc-rails", "~> 2.1.0"
+
+# Using this gem instead of sassc-rails cause sassc-rails wasn't downloading
+gem 'dartsass-sprockets'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -71,4 +74,11 @@ group :test do
 
 end
 
+# User model
 gem "devise", "~> 4.9"
+
+# CSS 
+gem 'bootstrap', '~> 5.3.2'
+
+# Needed for bootstrap js
+gem 'popper_js', '~> 2.11.8'
