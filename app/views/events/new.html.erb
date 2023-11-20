@@ -1,9 +1,15 @@
-<h1>New event</h1>
+<body class="bg-light">
+  <div class="container">
+    <h1>New event</h1>
 
-<%= render "form", event: @event %>
+    <%= render "form", event: @event %>
 
-<br>
+    <br>
 
-<div>
-  <%= link_to "Back to events", events_path %>
-</div>
+    <div>
+      <%= link_to "Back to events", events_path, class: 'btn btn-outline-primary' %>
+    </div> 
+  </div>
+</body>
+
+
