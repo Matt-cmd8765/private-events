@@ -6,3 +6,13 @@ This project is from the Odin Project ruby on rails path. Description of the pro
 * Rails version 7.0.8
 
 * Database creation: Postgresql
+
+* Devise -v 4.9 used for user model and authentification
+
+* Bootstrap -v 5.0 used for all styles
+
+## WARNING
+
+This is a project for learning rails, not a real app. Use at your own discretion. 
+
+&copy; Matt-cmd8765 2023
