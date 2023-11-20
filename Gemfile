@@ -86,8 +86,8 @@ gem 'bootstrap_form', '~> 5.0'
 # other devise bootstrap form
 gem 'devise-bootstrap-form'
 
-# gem 'devise-i18n'
-# gem 'devise_invitable'
+gem 'devise-i18n'
+gem 'devise_invitable'
 
 # Needed for bootstrap js
 gem 'popper_js', '~> 2.11.8'

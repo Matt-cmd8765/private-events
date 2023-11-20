@@ -1,28 +1,73 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Your Events</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
 
-<% @user.created_events.each do |event| %>
-
-<%= link_to "#{event.title}", event%><br>
-
-<%end%>
-
-<h1>Your Attended Events</h1>
-
-<h3>Events Long Gone</h3>
-<% @user.attended_events.each do |event| %>
-  <% if event.date.past? %>
-    <%= link_to "#{event.title}", event%><br>
-  <% end %>
-<% end %>
-
-<h3>Events To Come</h3>
-<% @user.attended_events.each do |event| %>
-  <% if event.date.future? %>
-    <%= link_to "#{event.title}", event%><br>
-  <% end %>
-<% end %>
+    <title>Profile Page</title>
 
 
-<p>Find me in app/views/users/show.html.erb</p>
+  </head>
+
+  <body class="bg-light">
+    <p style="color: green"><%= notice %></p>
+
+    <main role="main" class="container">
+
+      <h1 class="text-center">Events</h1>
+        <h3>Your Created Events</h3>
+          <% @user.created_events.each do |event| %>
+              <div class="my-3 p-3 bg-white rounded box-shadow">
+              <h6 class="border-bottom border-gray pb-2 mb-0"><%= event.title %></h6>
+              <div class="media text-muted pt-3">
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark"><%= link_to "#{event.title}", event, class: 'badge bg-info'%></strong>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        <h3>Upcoming Events</h3>
+          <% @user.attended_events.each do |event| %>
+            <% if event.date.future? %>
+              <div class="my-3 p-3 bg-white rounded box-shadow">
+              <h6 class="border-bottom border-gray pb-2 mb-0"><%= event.title %></h6>
+              <div class="media text-muted pt-3">
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark"><%= link_to "#{event.title}", event, class: 'badge bg-primary'%></strong>
+                </p>
+              </div>
+            </div>
+            <% end %>
+          <% end %>
+        <h3>Events Long Gone</h3>
+          <% @user.attended_events.each do |event| %>
+            <% if event.date.past? %>
+              <div class="my-3 p-3 bg-white rounded box-shadow">
+              <h6 class="border-bottom border-gray pb-2 mb-0"><%= event.title %></h6>
+              <div class="media text-muted pt-3">
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark"><%= link_to "#{event.title}", event, class: 'badge bg-dark'%></strong>
+                </p>
+              </div>
+            </div>
+            <% end %>
+          <% end %>
+    </main>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<% <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <script src="offcanvas.js"></script>-->
+  </body>
+</html>

@@ -1,23 +1,68 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @event %>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
 
-<h2>Attendees</h2>
+    <title>Event Deets</title>
 
-<% if @event.attendees.any? %>
-  <% @event.attendees.each do |attendee| %>
-    <%= attendee.email%><br>
-  <% end %>
-<% else %>
-  <p>No Attendees</p><br>
-<% end %>
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
 
-<div>
-  <%= link_to "Edit this event", edit_event_path(@event) %> 
-  <%= link_to "Back to events", events_path %>
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+  </head>
 
-  <%= render 'event_details/form' %><br>
+  <body class="bg-light">
 
-  <%= button_to "Destroy this event", @event, method: :delete %>
-</div>
+    <main role="main" class="container">
+
+      <div class="my-3 p-3 bg-white rounded box-shadow">
+        <div class="media text-muted pt-3">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark"><%= render @event %></strong>
+          </p>
+        </div>
+        <div class="media text-muted pt-3">
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark">Attendees</strong>
+            <% if @event.attendees.any? %>
+              <% @event.attendees.each do |attendee| %>
+                <%= attendee.email%><br>
+              <% end %>
+            <% else %>
+              No Attendees
+            <% end %>
+          </p>
+        </div>
+          <% if current_user.id == @event.creator_id %>
+            <%= link_to "Edit this event", edit_event_path(@event), class: 'badge bg-secondary'%>
+          <% end %>
+
+
+          <%= link_to "Back to events", events_path, class: 'badge bg-info' %><br>
+          <br>
+
+          <%= render 'event_details/form' %><br>
+          <% if current_user.id == @event.creator_id %>
+            <%= button_to "Delete Event", @event, method: :delete, class: 'btn btn-danger' %>
+          <% end %>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <script src="offcanvas.js"></script>-->
+  </body>
+</html>
 
